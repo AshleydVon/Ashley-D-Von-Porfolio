@@ -1,0 +1,202 @@
+/* General Styles */
+body {
+    font-family: 'Merriweather', serif;
+    background-color: #f5f0e1;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3b3a30;
+    padding: 20px;
+}
+
+.nav-links.exo-2-nav {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 400;
+}
+
+.nav-links.exo-2-nav li {
+    margin: 0 15px;
+}
+
+.nav-links.exo-2-nav a {
+    font-size: 1.2em;
+    color: rgb(245, 240, 225);
+    text-decoration: none;
+}
+
+.nav-links.exo-2-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Content with Image and Text Side by Side */
+.content-with-image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.text-content {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.image-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 5px solid rgb(245, 240, 225); /* Border around the picture */
+}
+
+.profile-image {
+    width: 100%;
+    height: auto;
+    filter: blur(10px); /* Apply blur effect to the entire image */
+}
+
+/* Focused area */
+.image-container::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    bottom: 20%;
+    background-image: url('images/Untitled design.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(0); /* Keep the central area unblurred */
+    z-index: 1;
+    border-radius: 5px;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #3b3a30;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Divider Images */
+.divider {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 -20px; /* Extend to the edges */
+}
+
+.about-divider {
+    background-image: url('images/daniela-e-tLTCY-rknG8-unsplash.jpg');
+}
+
+.projects-divider {
+    background-image: url('images/paulina-milde-jachowska-XO9WoYVtf3w-unsplash.jpg');
+}
+
+.skills-divider {
+    background-image: url('images/salah-ait-mokhtar-y7QJpueJX18-unsplash.jpg');
+}
+
+/* Playwrite FR Moderne for Specific Sections */
+.playwrite-fr-moderne-about {
+  font-family: "Playwrite FR Moderne", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playwrite-fr-moderne-projects {
+  font-family: "Playwrite FR Moderne", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.playwrite-fr-moderne-skills {
+  font-family: "Playwrite FR Moderne", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Footer using Exo 2 */
+footer.exo-2-footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #3b3a30;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 400;
+    color: rgb(245, 240, 225);
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #555;
+}
+
+/* Loader */
+#loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 99;
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0 -60px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #333;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+body.loaded #loader {
+    display: none;
+}
+
+/* Fade In Effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
