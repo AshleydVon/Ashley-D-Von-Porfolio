@@ -54,13 +54,13 @@ header {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
-    border: 5px solid rgb(245, 240, 225); /* Border around the picture */
+    border: 5px solid rgb(245, 240, 225);
 }
 
 .profile-image {
     width: 100%;
     height: auto;
-    filter: blur(10px); /* Apply blur effect to the entire image */
+    filter: blur(10px);
 }
 
 /* Focused area */
@@ -74,7 +74,7 @@ header {
     background-image: url('images/Untitled design.png');
     background-size: cover;
     background-position: center;
-    filter: blur(0); /* Keep the central area unblurred */
+    filter: blur(0);
     z-index: 1;
     border-radius: 5px;
 }
@@ -97,7 +97,7 @@ section {
     height: 200px;
     background-size: cover;
     background-position: center;
-    margin: 0 -20px; /* Extend to the edges */
+    margin: 0 -20px;
 }
 
 .about-divider {
@@ -199,4 +199,174 @@ body.loaded #loader {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Project Cards */
+.project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.card-hover {
+    width: calc(50% - 15px);
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 32px -10px rgba(0,0,0,0.08);
+    border-radius: 8px;
+}
+
+.card-hover:has(.card-hover__link:hover) .card-hover__extra {
+    transform: translateY(0);
+    transition: transform 0.35s;
+}
+
+.card-hover:hover .card-hover__content {
+    background-color: rgba(245, 240, 225, 0.9);
+    bottom: 100%;
+    transform: translateY(100%);
+    padding: 50px 30px;
+    transition: all 0.35s cubic-bezier(.1,.72,.4,.97);
+}
+
+.card-hover:hover .card-hover__link {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    transition: all 0.3s 0.35s cubic-bezier(.1,.72,.4,.97);
+}
+
+.card-hover:hover img {
+    transform: scale(1);
+    transition: 0.35s 0.1s transform cubic-bezier(.1,.72,.4,.97);
+}
+
+.card-hover__content {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(59, 58, 48, 0.9);
+    padding: 0 30px 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(0);
+    transition: all 0.35s 0.35s cubic-bezier(.1,.72,.4,.97);
+    will-change: bottom, background-color, transform, padding;
+    z-index: 1;
+    color: #f5f0e1;
+}
+
+.card-hover__content::before,
+.card-hover__content::after {
+    content: '';
+    width: 100%;
+    height: 120px;
+    background-color: inherit;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+}
+
+.card-hover__content::before {
+    top: -80px;
+    clip-path: ellipse(60% 80px at bottom center);
+}
+
+.card-hover__content::after {
+    bottom: -80px;
+    clip-path: ellipse(60% 80px at top center);
+}
+
+.card-hover__title {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+    font-family: "Exo 2", sans-serif;
+}
+
+.card-hover__title span {
+    color: #f5f0e1;
+}
+
+.card-hover__text {
+    font-size: 0.85rem;
+    font-family: 'Merriweather', serif;
+}
+
+.card-hover__link {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-decoration: none;
+    color: #3b3a30;
+    opacity: 0;
+    padding: 10px;
+    transition: all 0.35s;
+    font-family: "Exo 2", sans-serif;
+}
+
+.card-hover__link:hover svg {
+    transform: translateX(4px);
+}
+
+.card-hover__link svg {
+    width: 18px;
+    margin-left: 4px;
+    transition: transform 0.3s;
+}
+
+.card-hover__extra {
+    height: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(59, 58, 48, 0.9);
+    padding: 40px;
+    bottom: 0;
+    z-index: 0;
+    color: #f5f0e1;
+    transform: translateY(100%);
+    will-change: transform;
+    transition: transform 0.35s;
+    font-family: "Exo 2", sans-serif;
+}
+
+.card-hover__extra span {
+    color: #f5f0e1;
+    font-weight: bold;
+}
+
+.card-hover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    transform: scale(1.2);
+    transition: 0.35s 0.35s transform cubic-bezier(.1,.72,.4,.97);
+}
+
+@media (max-width: 1024px) {
+    .card-hover {
+        width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card-hover {
+        height: 400px;
+    }
 }
